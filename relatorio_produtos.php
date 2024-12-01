@@ -155,12 +155,15 @@ foreach ($produtos as $produto) {
                 <td>R$ ' . $produto['preco'] . '</td>
                 <td>' . $produto['descricao'] . '</td>
                 <td>' . $produto['Qtd'] . '</td>
+                
             </tr>';
 }
 
 $html .= '
         </tr>
-    </table>';
+    </table>
+    <p style="text-align: center; margin-top: 20px;">Gerado em: ' . date('d/m/Y H:i:s') . '</p>'; // Adiciona data e hora
+
 
 $mpdf->WriteHTML($stylesheet, \Mpdf\HTMLParserMode::HEADER_CSS);
 $mpdf->WriteHTML($html, \Mpdf\HTMLParserMode::HTML_BODY);
